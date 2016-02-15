@@ -41,7 +41,7 @@ public class FriendsContract {
             return CONTENT_URI.buildUpon().appendEncodedPath(friendId).build();
 
         }
-        public static String getFriendUri(Uri uri){
+        public static String getFriendId(Uri uri){
             return uri.getPathSegments().get(1);
 
         }
