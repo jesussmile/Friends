@@ -80,7 +80,7 @@ public class FriendsCustomAdapter extends ArrayAdapter<Friend> {
                 args.putString(FriendsDialog.DIALOG_TYPE, FriendsDialog.DELETE_RECORD);
                 args.putString(FriendsContract.FriendsColumns.FRIENDS_NAME, name);
                 dialog.setArguments(args);
-                dialog.show(sFragmentManager, "delete-record");
+               // dialog.show(sFragmentManager, "delete-record");
 
 
             }

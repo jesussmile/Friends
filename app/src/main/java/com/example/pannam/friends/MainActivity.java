@@ -1,5 +1,6 @@
 package com.example.pannam.friends;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -15,16 +16,15 @@ public class MainActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
 
         FragmentManager fragmentManager = getSupportFragmentManager();
-        if(fragmentManager.findFragmentById(android.R.id.content)== null){
+        if (fragmentManager.findFragmentById(android.R.id.content) == null) {
             FriendsListFragment friendsListFragment = new FriendsListFragment();
-            fragmentManager.beginTransaction().add(android.R.id.content,friendsListFragment).commit();
+            fragmentManager.beginTransaction().add(android.R.id.content, friendsListFragment).commit();
 
         }
 
 
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-
 
 
     }
@@ -34,7 +34,7 @@ public class MainActivity extends FragmentActivity {
 
 
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_main,menu);
+        inflater.inflate(R.menu.menu_main, menu);
         return super.onCreateOptionsMenu(menu);
 
     }
@@ -44,8 +44,24 @@ public class MainActivity extends FragmentActivity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+        switch (item.getItemId()) {
 
+
+            case R.id.addRecord:
+                Intent intent = new Intent(MainActivity.this, AddActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.deleteDatabase:
+                FriendsDialog dialog = new FriendsDialog();
+                Bundle args = new Bundle();
+                args.putString(FriendsDialog.DIALOG_TYPE, FriendsDialog.DELETE_DATABASE);
+                dialog.setArguments(args);
+               // dialog.show(getSupportFragmentManager(), "delete-database");
+                break;
+            case R.id.searchRecord:
+                Intent intent1 = new Intent(MainActivity.this,SearchActivity.class);
+                startActivity(intent1);
+        }
 
 
         return super.onOptionsItemSelected(item);
