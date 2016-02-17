@@ -2,9 +2,34 @@
       xmlns:app="http://schemas.android.com/apk/res-auto"
       xmlns:tools="http://schemas.android.com/tools"
       tools:context="com.example.pannam.friends.MainActivity">
+
     <item
-        android:id="@+id/action_settings"
+        android:icon="@android:drawable/ic_menu_search"
+        android:id="@+id/search"
+        android:showAsAction="always"
+        android:orderInCategory="10"
+        android:title="@string/main_search_title"
+        tools:ignore = "AppCompatResource"
+
+        />
+
+    <item
+        android:icon="@android:drawable/ic_menu_add"
+        android:id="@+id/add"
+        android:showAsAction="always"
         android:orderInCategory="100"
-        android:title="@string/action_settings"
-        app:showAsAction="never"/>
+        android:title= "@string/main_add_title"
+        tools:ignore = "AppCompatResource"
+
+        />
+
+    <item
+        android:id="@+id/deleteDatabase"
+        android:showAsAction="never"
+        android:orderInCategory="50"
+        android:title= "@string/main_deleteDatabase_title"
+        tools:ignore = "AppCompatResource"
+
+        />
+
 </menu>
